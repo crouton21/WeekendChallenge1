@@ -6,6 +6,22 @@ $(document).ready(function(){
 
 var employeeArray = []
 
+// function checkIds(){
+//   console.log ('in check ids')
+//    if (employeeArray.length != 0){
+//      console.log('in if statement');
+//   // for (var i=0; i<employeeArray.length; i++){
+//   //   if ($('#employeeId').val('') == employeeArray[i].employeeId){
+//   //     alert("Employee must have unique ID");
+//   //     return false;
+//   //   }
+//   // }
+//    }
+//    else{
+//    gatherEmployeeInformation();}
+//    //return true;
+// }
+
 function gatherEmployeeInformation(){
   var newEmployee = {
     firstName: $('#firstName').val(),
@@ -14,10 +30,17 @@ function gatherEmployeeInformation(){
     jobTitle: $('#jobTitle').val(),
     salary: $('#annualSalary').val()
   }
+  for (var i=0; i<employeeArray.length; i++){
+    if ($('#employeeId').val() == employeeArray[i].employeeId){
+      alert("Employee ID must be unique");
+      $('#employeeId').val('');
+      return;
+    }
+  }
   employeeArray.push(newEmployee);
+  $('#employeeId').val('');
   $('#firstName').val('');
   $('#lastName').val('');
-  $('#employeeId').val('');
   $('#jobTitle').val('');
   $('#annualSalary').val('');
   console.log(employeeArray);
@@ -25,7 +48,7 @@ function gatherEmployeeInformation(){
   //displayEmployees();
   //calculate total salary
   calculateCost();
-}
+  }
 
 function displayEmployees(newSalary){
   console.log('in displayEmployees')
@@ -73,7 +96,9 @@ function displayEmployees(newSalary){
     $('td').css("border-width", "1px");
     $('td').css("border-color", "#0E1828");
     $('td').css("padding-left", "10px");
+    $('td').css("font-family", "monospace");
     $('.lastRow').css("border","none");
+    $('.lastRow').css("background-color","#838E9E");
     $('td').css("color","#0E1828");
     $('tr:odd').css("background-color", "#DCDCDE");
     $('tr:even').css("background-color", "#A4A7AB");
