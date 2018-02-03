@@ -22,10 +22,13 @@ function gatherEmployeeInformation(){
   $('#annualSalary').val('');
   console.log(employeeArray);
   //call on displayEmployees function
-  displayEmployees();
+  //displayEmployees();
+  //calculate total salary
+  calculateCost();
 }
 
-function displayEmployees(){
+function displayEmployees(newSalary){
+  console.log('in displayEmployees')
   $('#employeeTableBody').empty();
   var toAppendToTable;
   for (var i=0; i<employeeArray.length; i++){
@@ -46,7 +49,7 @@ function displayEmployees(){
       toAppendToTable += employeeArray[i].salary;
       toAppendToTable += '</td>';
       toAppendToTable += '<td>';
-      toAppendToTable += '<button id="deleteButton">Delete</button>';
+      toAppendToTable += '<button id="deleteButton" data-salary="' +i+ '">Delete</button>';
       toAppendToTable += '</td>';
       toAppendToTable += '</tr>';
     }
@@ -61,7 +64,7 @@ function displayEmployees(){
     toAppendToTable += 'Salaries Total:';
     toAppendToTable += '</td>';
     toAppendToTable += '<td>';
-    toAppendToTable += calculateCost();
+    toAppendToTable += newSalary;
     toAppendToTable += '</td>';
     toAppendToTable += '</tr>';
     console.log("toAppendToTable:", toAppendToTable);
@@ -74,17 +77,28 @@ function displayEmployees(){
     $('td').css("color","#0E1828");
     $('tr:odd').css("background-color", "#DCDCDE");
     $('tr:even').css("background-color", "#A4A7AB");
+    $('.lastRow').css("background-color", "none");
     $('#salariesTotal').css("text-align","right");
 }
 
 function calculateCost(){
+  console.log('in calculateCost',employeeArray);
   var salaryTotal = 0;
   for (var i=0; i<employeeArray.length; i++){
     salaryTotal+=parseInt(employeeArray[i].salary);
   }
-  return (salaryTotal);
+  //return (salaryTotal);
+  //display new salary on DOM
+  displayEmployees(salaryTotal);
 }
 
 function deleteButtonPressed(){
+  console.log( "in deleteButtonPressed", $( this ).data( 'salary' ) );
   $(this).parent().parent().remove();
+  //remove employee from employeesArray
+  var index = $( this ).data( 'salary' )
+  //console.log(employeeArray[index]);
+  employeeArray.splice( index , 1 );
+  //recalculate salary
+  calculateCost();
 }
