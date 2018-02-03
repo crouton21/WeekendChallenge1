@@ -1,6 +1,7 @@
 
 $(document).ready(function(){
-  $('#submitEmployeeButton').on('click', gatherEmployeeInformation)
+  $('#submitEmployeeButton').on('click', gatherEmployeeInformation);
+  $('#employeeTableBody').on('click','#deleteButton', deleteButtonPressed);
 })
 
 var employeeArray = []
@@ -82,4 +83,8 @@ function calculateCost(){
     salaryTotal+=parseInt(employeeArray[i].salary);
   }
   return (salaryTotal);
+}
+
+function deleteButtonPressed(){
+  $(this).parent().parent().remove();
 }
