@@ -1,0 +1,48 @@
+html{
+  background-color: #838E9E;
+}
+
+.inputBoxTest{
+  margin-bottom: 25px;
+  width: 23%;
+}
+
+.inputBoxNumber{
+  margin-bottom: 25px;
+  width: 10%;
+}
+
+
+th{
+  border-style: solid;
+  border-width: 1px;
+  border-color: "#0E1828";
+  padding: 10px;
+  color: "#0E1828";
+}
+
+tr:odd{
+  background-color: "#0E1828";
+}
+
+.textBox {
+  width: 30%;
+}
+
+.numberBox{
+  width:5%;
+}
+
+h1{
+  color: #0E1828;
+}
+
+#submitEmployeeButton{
+  box-shadow: 2px 2px 2px gray;
+}
+
+#submitEmployeeButton:active{
+  transform: translate(2px, 2px);
+  box-shadow: 0px 0px 0px;
+  background-color: inherit;
+  outline: none;
