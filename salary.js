@@ -77,7 +77,7 @@ function displayEmployees(newSalary){
     toAppendToTable += '<td class="lastRow">';
     toAppendToTable += '</td>';
     toAppendToTable += '<td id="salariesTotal">';
-    toAppendToTable += 'Salaries Total:';
+    toAppendToTable += 'Monthly Salary Total:';
     toAppendToTable += '</td>';
     toAppendToTable += '<td>';
     toAppendToTable += newSalary;
@@ -106,6 +106,7 @@ function calculateCost(){
     salaryTotal+=parseInt(employeeArray[i].salary);
   }
   //display employees on DOM
+  salaryTotal = Math.round(salaryTotal/12);
   displayEmployees(salaryTotal);
 }//end calculateCost
 
