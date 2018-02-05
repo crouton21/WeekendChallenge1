@@ -15,6 +15,14 @@ function gatherEmployeeInformation(){
     jobTitle: $('#jobTitle').val(),
     salary: $('#annualSalary').val()
   }
+
+  // //check to make sure annualSalary is a number
+   if (typeof(parseInt($('#annualSalary').val())) != 'number' || $('#annualSalary').val() == ''){
+      alert('Annual salary must be a number');
+      $('#annualSalary').val('');
+      return; //stop function if IDs are not unique
+   }
+
   //check to make sure IDs are unique
   for (var i=0; i<employeeArray.length; i++){
     if ($('#employeeId').val() == employeeArray[i].employeeId){
