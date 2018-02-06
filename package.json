@@ -1,0 +1,24 @@
+{
+  "name": "Weekend_Challenge-1",
+  "version": "1.0.0",
+  "description": "delete button to remove salary:   -each delete button corresponds to index of employeeArray, get index   -subtract employeeArray[i].salary from totalSalary   -display new salary on DOM",
+  "main": "jQuery_min_3_3_1.js",
+  "scripts": {
+    "start": "node server/public/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/crouton21/WeekendChallenge1.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/crouton21/WeekendChallenge1/issues"
+  },
+  "homepage": "https://github.com/crouton21/WeekendChallenge1#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
